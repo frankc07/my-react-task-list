@@ -1,84 +1,199 @@
-
-.ListaTareas {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.lista {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --tertiary-color: #e74c3c;
+  --bg-dark: #2c3e50;
+  --bg-light: #ecf0f1;
+  --font-light: #ecf0f1;
+  --font-dark: #34495e;
 }
 
-.botones {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 10px;
+body {
+  font-family: 'Poppins', sans-serif;
+  max-width: 1200px;
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+  background-color: var(--bg-dark);
+  color: var(--font-light);
 }
 
-.editar {
-    background-color: #4CAF50;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
+.card-to-do {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 15px;
+  width: 800px;
+  background-color: var(--bg-light);
+  transition: background-color 0.3s, transform 0.3s;
 }
 
-.editar:hover {
-    background-color: #45a049;
+.card-to-do:hover {
+  background-color: var(--bg-dark);
+  transform: scale(1.05);
 }
 
-.material-icons {
-    font-size: 24px;
+h1 {
+  text-align: center;
+  color: var(--primary-color);
 }
 
-.agregar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.counter-todos {
+  margin: 40px 0;
+  display: flex;
+  justify-content: space-around;
 }
 
-.agregar h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+.counter-todos h3 {
+  font-weight: 600;
+  color: var(--secondary-color);
+  font-size: 1.5em;
 }
 
-.ContentAgre {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+counter-todos span {
+  color: var(--tertiary-color);
+  font-weight: 700;
+  font-size: 28px;
+  margin-left: 10px;
 }
 
-.ContentAgre input[type="text"] {
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 5px;
+ul {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.ContentAgre input[type="button"] {
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 4px;
+ul li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+  background-color: var(--bg-light);
+  transition: background-color 0.3s;
 }
 
-.ContentAgre input[type="button"]:hover {
-    background-color: #45a049;
+ul li:hover {
+  background-color: var(--bg-dark);
+}
+
+ul li span {
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+ul li form {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-update {
+  border: none;
+  font-weight: 500;
+  font-family: inherit;
+  font-size: 18px;
+  color: var(--font-dark);
+  width: 100%;
+  outline: none;
+  background-color: var(--bg-light);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.container-done {
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid var(--secondary-color);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.container-done.active {
+  background-color: var(--secondary-color);
+}
+
+.text-decoration-guiones {
+  text-decoration: line-through;
+  color: var(--font-dark);
+}
+
+.btn-delete,
+.btn-edit {
+  background-color: var(--tertiary-color);
+  color: var(--font-light);
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 30%;
+  transition: all 0.3s;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-delete:hover {
+  background-color: #c0392b;
+}
+
+.btn-edit {
+  background-color: #2980b9;
+}
+
+.btn-edit:hover {
+  background-color: #3498db;
+}
+
+form {
+  display: flex;
+  gap: 30px;
+}
+
+.add-todo h3 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 28px;
+  color: var(--primary-color);
+}
+
+.input-add {
+  border: none;
+  outline: none;
+  padding: 20px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  flex: 1;
+  font-family: inherit;
+  font-size: 20px;
+  color: var(--font-dark);
+  background-color: var(--bg-light);
+}
+
+.btn-add {
+  border: none;
+  background-color: var(--secondary-color);
+  color: var(--font-light);
+  padding: 18px;
+  border-radius: 8px;
+  font-family: inherit;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.btn-add:hover {
+  background-color: #27ae60;
 }
